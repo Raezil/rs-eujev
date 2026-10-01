@@ -81,11 +81,14 @@ impl ResponseBodyError {
             Self::Read(error) => error.is_timeout(),
             #[cfg(feature = "blocking")]
             Self::Io(error) => {
-                use std::error::Error as _;
                 if error.kind() == std::io::ErrorKind::TimedOut {
                     return true;
                 }
-                let mut cause = error.source();
+                // io::Error::source() can skip the wrapped reqwest error and
+                // expose its cause directly. Inspect the wrapper first.
+                let mut cause = error
+                    .get_ref()
+                    .map(|source| source as &(dyn std::error::Error + 'static));
                 while let Some(source) = cause {
                     if let Some(error) = source.downcast_ref::<reqwest::Error>() {
                         if error.is_timeout() {

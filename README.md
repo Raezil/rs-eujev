@@ -219,4 +219,4 @@ cargo package --all-features
 Tests use local HTTP servers; no API key or live service requests are needed.
 They cover wire formats, response parsing, authentication, errors, redirects,
 timeouts, cancellation, concurrency, truncated responses, and response limits
-for async and blocking clients. CI runs on Linux, macOS, and Windows.
+for async and blocking clients. CI is configured for Linux, macOS, and Windows.
