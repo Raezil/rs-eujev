@@ -1,12 +1,12 @@
 [package]
 name = "eujev"
-version = "0.1.0"
+version = "0.1.1"
 edition = "2021"
 description = "A typed Rust SDK for the eu/jev System One API"
 license = "MIT"
 readme = "README.md"
 homepage = "https://jev.bevel.software"
-repository = "https://github.com/Bevel/rs-eujev"
+repository = "https://github.com/Raezil/rs-eujev"
 keywords = ["eujev", "sdk", "inference", "classification"]
 categories = ["api-bindings", "web-programming::http-client"]
 include = ["src/**", "examples/**", "tests/**", "Cargo.toml", "Cargo.lock", "README.md", "LICENSE"]
